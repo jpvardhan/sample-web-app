@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
+      - pip install pytest pytest-cov
+  build:
+    commands:
+      - echo Running tests...
+      - export PYTHONPATH=.
+      - pytest tests/ --cov=app
+      - echo Building the application...
+      - pip install wheel
+      - python setup.py bdist_wheel
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - appspec.yml
+    - app.py
+    - templates/**/*
+    - requirements.txt
+    - scripts/**/*
+    - dist/**/*
+  discard-paths: no
