@@ -19,7 +19,7 @@ phases:
       - python setup.py bdist_wheel
   post_build:
     commands:
-      - echo Build completed on Tue Mar 24 04:45:41 UTC 2026
+      - echo Build completed on `date`
 
 artifacts:
   files:
