@@ -13,19 +13,13 @@ phases:
     commands:
       - echo Running tests...
       - export PYTHONPATH=.
-      - pytest tests/ --cov=app --cov-report=xml
+      - pytest tests/ --cov=app
       - echo Building the application...
       - pip install wheel
       - python setup.py bdist_wheel
   post_build:
     commands:
       - echo Build completed on `date`
-
-reports:
-  coverage:
-    files:
-      - coverage.xml
-    file-format: CLOVERXML
 
 artifacts:
   files:
