@@ -21,6 +21,12 @@ phases:
     commands:
       - echo Build completed on `date`
 
+reports:
+  coverage:
+    files:
+      - coverage.xml
+    file-format: CLOVERXML
+
 artifacts:
   files:
     - appspec.yml
